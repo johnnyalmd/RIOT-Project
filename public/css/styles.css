@@ -2965,8 +2965,8 @@ textarea.form-control-lg {
 
 .btn-dark {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #000000;
-  --bs-btn-border-color: #000000;
+  --bs-btn-bg: #7D0A0A;
+  --bs-btn-border-color: #7D0A0A;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #262626;
   --bs-btn-hover-border-color: #1a1a1a;
@@ -10840,21 +10840,22 @@ body:before {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #2a5555;
+  background-color:	#B31312;
   opacity: 0.7;
   z-index: 1;
 }
 
 video.bg-video {
   position: fixed;
-  top: 50%;
+  top: 100%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 0;
+  z-index: -100;
+  transform: translate(-50%, -50%);
+  background-size: cover;
 }
 
 @media (pointer: coarse) and (hover: none) {
@@ -10883,7 +10884,7 @@ video.bg-video {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .masthead .masthead-content {
   position: relative;

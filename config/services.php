@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'riot' => [
+        'api_key' => env('RIOT_API_KEY'),
+    ],
+
 ];

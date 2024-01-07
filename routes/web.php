@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [RiotController::class, 'index']);
+Route::post('/search', [RiotController::class, 'searchPlayer']);
