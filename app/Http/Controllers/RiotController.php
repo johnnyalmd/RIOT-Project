@@ -47,6 +47,7 @@ class RiotController extends Controller
             $matchDetails[] = $responseMatch->json();
         }
 
+        dd($matchDetails);
         return view('resultado', compact('playerData', 'masteries', 'matchIds'));
     }
 
