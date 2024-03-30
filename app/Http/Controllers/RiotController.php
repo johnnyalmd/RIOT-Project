@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\Champion;
 
 class RiotController extends Controller
 {
@@ -49,6 +50,12 @@ class RiotController extends Controller
 
         dd($matchDetails);
         return view('resultado', compact('playerData', 'masteries', 'matchIds'));
+    }
+
+    public function championPage($id)
+    {
+        $champion = Champion::with('images')->find($id);
+        return view('champion', ['champion' => $champion]);
     }
 
     /**

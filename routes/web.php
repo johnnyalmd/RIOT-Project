@@ -29,3 +29,6 @@ Route::post('/gerarCampeao', [ChampionController::class, 'store'])->name('champi
 Route::delete('/champions/{id}', [ChampionController::class, 'destroy'])->name('champions.destroy');
 Route::put('/champions/{id}', [ChampionController::class, 'update'])->name('champions.update');
 Route::get('/champions/{id}/edit', [ChampionController::class, 'edit'])->name('champions.edit');
+
+//campeao especifico
+Route::get('/champions/page/{id}',  [RiotController::class, 'championPage'])->name('champions.show');

@@ -1,6 +1,6 @@
 @include('champions.partials.header')
 <div class="container-md">
-    <table class="table table-striped-columns margin-top-form ">
+    <table class="table table-striped-columns margin-top-form">
         <thead>
             <tr>
             <th scope="col">ID</th>
@@ -19,7 +19,7 @@
                     <td>{{ $champion->name }}</td>
                     <td>{{ $champion->id_custom }}</td>
                     <td>{{ $champion->description }}</td>
-                    <td>{{ $champion->lore }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($champion->lore, 50, $end='...') }}</td>
                     <td>
                         <form action="{{ route('champions.destroy', $champion->id) }}" method="POST">
                             @csrf
@@ -34,6 +34,6 @@
             @endforeach
         </tbody>
     </table>
-    <a class="btn btn-primary mt-3" href="{{ route('champions.create') }}" role="button">Link</a>
+    <a class="btn btn-primary mt-3" href="{{ route('champions.create') }}" role="button">Adicionar</a>
 </div>
 @include('champions.partials.footer')
