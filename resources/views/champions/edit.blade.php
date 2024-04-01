@@ -1,6 +1,6 @@
 @include('champions.partials.header')
 <div class="container-md margin-top-form">
-    <form method="POST" action="{{ route('champions.update', $champion->id) }}" class="shadow p-3 mb-5 bg-body-tertiary rounded-4">
+    <form method="POST" enctype="multipart/form-data" action="{{ route('champions.update', $champion->id) }}" class="shadow p-3 mb-5 bg-body-tertiary rounded-4">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -14,6 +14,10 @@
         <div class="mb-3">
             <label class="form-label">Descrição</label>
             <input type="text" name="description" class="form-control" value="{{ $champion->description }}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Imagens</label>
+            <input type="file" name="images[]" class="form-control" multiple>
         </div>
         <div class="mb-3">
             <label class="form-label">Lore</label>

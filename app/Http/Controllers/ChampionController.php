@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Champion;
 use App\Models\ChampionImage;
+use Illuminate\Support\Facades\Storage;
 
 class ChampionController extends Controller
 {
@@ -85,6 +86,22 @@ class ChampionController extends Controller
         $champion->color_2 = $request->color_2;
         $champion->color_3 = $request->color_3;
         $champion->save();
+
+        if ($request->hasFile('images')) {
+            foreach ($champion->images as $image) {
+                Storage::delete('public/' . $image->image_path);
+                $image->delete();
+            }
+
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('images', 'public');
+
+                $championImage = new ChampionImage();
+                $championImage->champion_id = $champion->id;
+                $championImage->image_path = $path;
+                $championImage->save();
+            }
+        }
 
         return redirect()->route('champions.index');
     }
